@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include<string.h>
+int main(){
+	char a[20]="abcdee";
+    //printf("enter the string");
+    //scanf("%s",a);
+    int y=strlen(a);
+    int k[26]= {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    int i;
+    for(i=0;i<y;i++){
+    	int m=a[i];
+    	if(m>64 && m<91){
+    	    m+=32;
+    	}
+    	m-=97;
+    	if(k[m]==0){
+    	    k[m]++;   
+    	}
+        else{
+            printf("false");
+            return 0;
+        }
+    }
+    printf("true");
+	return 0;
+}
