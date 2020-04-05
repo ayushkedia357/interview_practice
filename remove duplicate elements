@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+	char a[20];
+    printf("enter the string: ");
+    scanf("%s",a);
+    int r=strlen(a);
+    int ch=0;
+    int i=0;
+	while(a[i]!='\0'){
+    	int m=a[i];
+    	if(m>64 && m<91){
+    	    m+=32;  n
+    	}
+    	m-=97;
+    	int k=0;
+    	k=(1<<m);
+    	//printf("%d\n",k);
+    	if((k&ch)>0){
+    		//printf("__%d	%d\n",k,ch);
+    		int t=0;
+    		for(t=i;t<r;t++){
+    			a[t]=a[t+1];
+    		}
+    	a[t]='\0';
+		}
+		else{
+    		i++;
+    	}
+    	ch=k|ch;
+	}
+	printf("%s",a);
+}
