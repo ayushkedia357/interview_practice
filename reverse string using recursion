@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<string.h>
+//think all the cases
+//
+char func(char *b,int n,int nn){//variable name
+	if(n<=nn)
+		return *b;
+	char k;
+	k=*(b+nn);
+	*(b+nn)=*(b+n);
+	*(b+n)=k;
+	printf("%d\n",n);
+	return func(b,--n,++nn);
+}
+int main(){
+	char a[20];
+    printf("enter the string: ");
+    scanf("%s",a);
+    int y=strlen(a);
+    func(a,y-1,0);
+    printf("%s",a);
+    //printf("%s",);
+}
