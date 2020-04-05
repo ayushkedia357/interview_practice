@@ -1,0 +1,60 @@
+#include<stdio.h>
+//time complexity-O(N*N/2)
+//space complexity-
+int main(){
+	int n;
+	printf("enter the value of N: ");
+	scanf("%d",&n);
+	int a[n][n];
+	int i,j;
+	int k;
+	printf("for rotating clockwise enter:2\nfor rotating anticlockwise enter:1\n");
+	scanf("%d",&k);
+	for(i=0;i<n;i++){
+		for(j=0;j<n;j++){
+			scanf("%d",&a[i][j]);
+		}
+	}
+	int b[n][n];
+	switch(k){
+		
+			//rotate-anti
+/*
+[1 2 3
+4 5 6	
+7 8 9]
+
+[3 6 9
+2 5 8
+1 4 7]
+i=0,j=2
+b[2,0]=a[0,0]
+b[0,0]=a[0,2]
+b[1,0]=a[0,1]
+*/
+	case 1:	for(i=0;i<n;i++){
+				for(j=n-1;j>(n/2)-1;j--){
+					//printf("%d	",j);
+					b[j][i]=a[i][n-j-1];//
+					b[n-1-j][i]=a[i][j];
+				}
+			}
+			break;
+			//rotate-clock
+	case 2: for(i=n-1;i>-1;i--){
+				for(j=0;j<(n/2)+1;j++){
+					//printf("%d	",j);
+					b[j][i]=a[n-1-i][j];
+					b[n-1+j][i]=a[n-1-i][n-1+j];
+				}
+			}
+			break;
+	default: return 0;
+	}	
+	for(i=0;i<n;i++){
+		for(j=0;j<n;j++){
+			printf("%d	",b[i][j]);
+		}
+		printf("\n");
+	}
+}
